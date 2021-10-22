@@ -115,6 +115,11 @@
     <Compile Include="MainMenu.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\dtsAppReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsAppReport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\CompanyVM.cs" />
     <EmbeddedResource Include="company.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -157,14 +162,23 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Reports\dtsAppReport.xsc">
+      <DependentUpon>dtsAppReport.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\dtsAppReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsAppReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\dtsAppReport.xss">
+      <DependentUpon>dtsAppReport.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
     <Service Include="{FE73BB80-53F4-4AD0-A5F9-6A0BCE662292}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

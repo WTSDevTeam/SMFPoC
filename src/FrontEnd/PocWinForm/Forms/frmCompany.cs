@@ -166,9 +166,24 @@ namespace PocWinForm.Forms
 
             rptPreviewReport.Load(strRPTFileName);
 
-            DataSet inData = new DataSet();
+            //Reports.dtsAppReport ReportData = new Reports.dtsAppReport();
+            DataSet ReportData = new Reports.dtsAppReport();
+            DataSet PreviewData = new DataSet();
 
-            //rptPreviewReport.SetDataSource(inData);
+            var Companys = GetCompany();
+            foreach (var report in Companys) {
+                DataRow dtrNew = ReportData.Tables["Company"].NewRow();
+                ReportData.Tables["Company"].Rows.Add(dtrNew);
+                dtrNew["Name"] = report.Name;
+                dtrNew["Address"] = report.Address;
+                dtrNew["Country"] = report.Country;
+            }
+
+            DataTable dtReport = ReportData.Tables["Company"].Copy();
+            PreviewData.Tables.Add(dtReport);
+
+
+            rptPreviewReport.SetDataSource(ReportData);
 
             MainMenu.PreviewReport(this, false, rptPreviewReport);
 
