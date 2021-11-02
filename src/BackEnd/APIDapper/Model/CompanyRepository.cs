@@ -67,13 +67,13 @@ namespace MiniDemo.Model
 
         public async Task UpdateCompany(int id, CompanyForCreationDto company)
         {
-            var query = "UPDATE Company SET Name = @Name, Address = @Address, Country = @Country WHERE Id = @Id";
+            var query = "UPDATE Company SET Name = @Name, Address = @Address, Country = @Country, StartDate = @StartDate WHERE Id = @Id";
 
             var parameters = new DynamicParameters();
             parameters.Add("Id", id, DbType.Int32);
             parameters.Add("Name", company.Name, DbType.String);
             parameters.Add("Address", company.Address, DbType.String);
-            parameters.Add("Country", company.Country, DbType.String);
+            parameters.Add("StartDate", company.StartDate, DbType.DateTime);
 
             using (var connection = _context.CreateConnection())
             {

@@ -15,12 +15,15 @@ builder.Services.AddScoped<IDataRepository, DataRepository>();
 builder.Services.AddDbContext<EmployeeDbContext>(x => x.UseSqlServer(connectionString));
 builder.Services.AddSingleton<DapperContext>();
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+
+
 
 //Add Swagger Support
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+    
 var app = builder.Build();
 
 

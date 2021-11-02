@@ -66,7 +66,8 @@ namespace PocWinForm.Forms
             {
                 Name = txtName.Text,
                 Address = txtAddress.Text,
-                Country = txtCountry.Text
+                Country = txtCountry.Text,
+                StartDate = this.startDate.DateTime
             };
             if (editId > 0)
             {

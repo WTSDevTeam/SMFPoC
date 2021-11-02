@@ -32,30 +32,34 @@ namespace PocWinForm.Forms
             this.components = new System.ComponentModel.Container();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabBrowse = new System.Windows.Forms.TabPage();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.tabEdit = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCountry = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblCode = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtCountry = new System.Windows.Forms.TextBox();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPrint = new System.Windows.Forms.Button();
+            this.startDate = new DevExpress.XtraEditors.DateEdit();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabMain.SuspendLayout();
             this.tabBrowse.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VMBindingSource)).BeginInit();
             this.tabEdit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.startDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMain
@@ -85,6 +89,16 @@ namespace PocWinForm.Forms
             this.tabBrowse.Text = "Browse Page";
             this.tabBrowse.UseVisualStyleBackColor = true;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(411, 6);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(96, 40);
+            this.btnPrint.TabIndex = 3;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -105,6 +119,29 @@ namespace PocWinForm.Forms
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(776, 363);
             this.dataGridView2.TabIndex = 2;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // CompanyName
+            // 
+            this.CompanyName.DataPropertyName = "Name";
+            this.CompanyName.HeaderText = "Name";
+            this.CompanyName.Name = "CompanyName";
+            this.CompanyName.ReadOnly = true;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            this.Address.Width = 200;
             // 
             // btnAdd
             // 
@@ -148,6 +185,8 @@ namespace PocWinForm.Forms
             // 
             // tabEdit
             // 
+            this.tabEdit.Controls.Add(this.startDate);
+            this.tabEdit.Controls.Add(this.label2);
             this.tabEdit.Controls.Add(this.label1);
             this.tabEdit.Controls.Add(this.txtCountry);
             this.tabEdit.Controls.Add(this.btnSave);
@@ -164,9 +203,25 @@ namespace PocWinForm.Forms
             this.tabEdit.Text = "Edit Page";
             this.tabEdit.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(88, 90);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Country";
+            // 
+            // txtCountry
+            // 
+            this.txtCountry.Location = new System.Drawing.Point(146, 87);
+            this.txtCountry.Name = "txtCountry";
+            this.txtCountry.Size = new System.Drawing.Size(275, 20);
+            this.txtCountry.TabIndex = 8;
+            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(129, 171);
+            this.btnSave.Location = new System.Drawing.Point(146, 156);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(92, 40);
             this.btnSave.TabIndex = 6;
@@ -176,7 +231,7 @@ namespace PocWinForm.Forms
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(227, 171);
+            this.btnCancel.Location = new System.Drawing.Point(244, 156);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(92, 40);
             this.btnCancel.TabIndex = 7;
@@ -187,7 +242,7 @@ namespace PocWinForm.Forms
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(71, 95);
+            this.lblName.Location = new System.Drawing.Point(88, 64);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(45, 13);
             this.lblName.TabIndex = 3;
@@ -195,7 +250,7 @@ namespace PocWinForm.Forms
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(129, 92);
+            this.txtAddress.Location = new System.Drawing.Point(146, 61);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(275, 20);
             this.txtAddress.TabIndex = 2;
@@ -203,7 +258,7 @@ namespace PocWinForm.Forms
             // lblCode
             // 
             this.lblCode.AutoSize = true;
-            this.lblCode.Location = new System.Drawing.Point(74, 69);
+            this.lblCode.Location = new System.Drawing.Point(91, 38);
             this.lblCode.Name = "lblCode";
             this.lblCode.Size = new System.Drawing.Size(35, 13);
             this.lblCode.TabIndex = 3;
@@ -211,59 +266,31 @@ namespace PocWinForm.Forms
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(129, 66);
+            this.txtName.Location = new System.Drawing.Point(146, 35);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(275, 20);
             this.txtName.TabIndex = 2;
             // 
-            // label1
+            // startDate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 121);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Country";
+            this.startDate.EditValue = null;
+            this.startDate.Location = new System.Drawing.Point(146, 113);
+            this.startDate.Name = "startDate";
+            this.startDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.startDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.startDate.Size = new System.Drawing.Size(180, 20);
+            this.startDate.TabIndex = 10;
             // 
-            // txtCountry
+            // label2
             // 
-            this.txtCountry.Location = new System.Drawing.Point(129, 118);
-            this.txtCountry.Name = "txtCountry";
-            this.txtCountry.Size = new System.Drawing.Size(275, 20);
-            this.txtCountry.TabIndex = 8;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // CompanyName
-            // 
-            this.CompanyName.DataPropertyName = "Name";
-            this.CompanyName.HeaderText = "Name";
-            this.CompanyName.Name = "CompanyName";
-            this.CompanyName.ReadOnly = true;
-            // 
-            // Address
-            // 
-            this.Address.DataPropertyName = "Address";
-            this.Address.HeaderText = "Address";
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            this.Address.Width = 200;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(411, 6);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(96, 40);
-            this.btnPrint.TabIndex = 3;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(88, 116);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Start Date";
             // 
             // frmCompany
             // 
@@ -281,6 +308,8 @@ namespace PocWinForm.Forms
             ((System.ComponentModel.ISupportInitialize)(this.VMBindingSource)).EndInit();
             this.tabEdit.ResumeLayout(false);
             this.tabEdit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.startDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDate.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -308,5 +337,7 @@ namespace PocWinForm.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.Button btnPrint;
+        private DevExpress.XtraEditors.DateEdit startDate;
+        private System.Windows.Forms.Label label2;
     }
 }

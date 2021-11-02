@@ -41,6 +41,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseSwagger(x => x.SerializeAsV2 = true);
+
 app.MapGet("/employee/{id}", ([FromServices] IDataRepository db, string id) =>
 {
     return db.GetEmployeeById(id);
