@@ -13,6 +13,7 @@ using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using CrystalDecisions.ReportSource;
 using System.Data;
+using PocWinForm.ViewModels;
 
 namespace PocWinForm.Forms
 {
@@ -22,12 +23,16 @@ namespace PocWinForm.Forms
 
         int editId { get; set; }
 
+        private CompanyVM oSource;
+
         public frmCompany()
         {
             InitializeComponent();
             client.BaseAddress = new Uri("http://localhost:5002/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            oSource = new CompanyVM(client);
         }
 
         private void frmCompany_Load(object sender, EventArgs e)
@@ -37,40 +42,11 @@ namespace PocWinForm.Forms
 
         private void bindGridBrow()
         {
-            var Companys = GetCompany();
+            var Companys = oSource.GetCompany();
             VMBindingSource.DataSource = Companys.ToList();
             dataGridView2.Refresh();
         }
 
-        private IEnumerable<Company> GetCompany(string path = "api/company")
-        {
-            IEnumerable<Company> Company = null;
-            HttpResponseMessage response = client.GetAsync(path).Result;
-            if (response.IsSuccessStatusCode)
-            {
-                Company = response.Content.ReadAsAsync<IEnumerable<Company>>().Result;
-            }
-            return Company;
-        }
-
-        Uri CreateCompany(Company Company)
-        {
-            HttpResponseMessage response = client.PostAsJsonAsync("api/company", Company).Result;
-            response.EnsureSuccessStatusCode();
-
-            // return URI of the created resource.
-            return response.Headers.Location;
-        }
-
-        private Company UpdateCompany(Company Company)
-        {
-            HttpResponseMessage response = client.PutAsJsonAsync($"api/company/{Company.Id}", Company).Result;
-            response.EnsureSuccessStatusCode();
-
-            // Deserialize the updated product from the response body.
-            Company = response.Content.ReadAsAsync<Company>().Result;
-            return Company;
-        }
 
         HttpStatusCode DeleteCompany(int id)
         {
@@ -95,10 +71,14 @@ namespace PocWinForm.Forms
             if (editId > 0)
             {
                 saveCompany.Id = editId;
-                UpdateCompany(saveCompany);
+                oSource.UpdateCompany(saveCompany);
+                //UpdateCompany(saveCompany);
             }
             else
-                CreateCompany(saveCompany);
+            {
+                //CreateCompany(saveCompany);
+                oSource.CreateCompany(saveCompany);
+            }
             bindGridBrow();
             tabMain.SelectedTab = tabBrowse;
         }
@@ -142,7 +122,11 @@ namespace PocWinForm.Forms
         {
             Company selData = dataGridView2.SelectedRows[0].DataBoundItem as Company;
             if (selData == null) { return; }
-            DeleteCompany(selData.Id);
+
+            oSource.DeleteCompany(selData.Id);
+
+            //DeleteCompany(selData.Id);
+
             bindGridBrow();
         }
 
@@ -170,7 +154,8 @@ namespace PocWinForm.Forms
             DataSet ReportData = new Reports.dtsAppReport();
             DataSet PreviewData = new DataSet();
 
-            var Companys = GetCompany();
+            //var Companys = GetCompany();
+            var Companys = oSource.GetCompany();
             foreach (var report in Companys) {
                 DataRow dtrNew = ReportData.Tables["Company"].NewRow();
                 ReportData.Tables["Company"].Rows.Add(dtrNew);
