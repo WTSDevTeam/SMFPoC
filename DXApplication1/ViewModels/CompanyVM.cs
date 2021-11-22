@@ -1,4 +1,4 @@
-﻿using PocWinForm.Models;
+﻿using DXApplication1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PocWinForm.ViewModels
+namespace DXApplication1.ViewModels
 {
     class CompanyVM : Company
     {
@@ -69,4 +69,5 @@ namespace PocWinForm.ViewModels
 
 
     }
+
 }
