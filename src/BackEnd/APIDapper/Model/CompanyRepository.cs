@@ -73,6 +73,7 @@ namespace MiniDemo.Model
             parameters.Add("Id", id, DbType.Int32);
             parameters.Add("Name", company.Name, DbType.String);
             parameters.Add("Address", company.Address, DbType.String);
+            parameters.Add("Country", company.Country, DbType.String);
             parameters.Add("StartDate", company.StartDate, DbType.DateTime);
 
             using (var connection = _context.CreateConnection())

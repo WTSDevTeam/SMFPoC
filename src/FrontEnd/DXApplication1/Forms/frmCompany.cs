@@ -58,6 +58,7 @@ namespace DXApplication1.Forms
             int i = 0;
             this.gridView1.Columns["Name"].VisibleIndex = i++;
             this.gridView1.Columns["Address"].VisibleIndex = i++;
+            this.gridView1.Columns["StartDate"].VisibleIndex = i++;
 
             //gridView1.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn()
             //{
@@ -119,6 +120,7 @@ namespace DXApplication1.Forms
         {
             //MessageBox.Show(e.Item.Tag.ToString());
 
+            Company oData = this.gridView1.GetFocusedRow() as Company;
 
             switch (e.Item.Tag.ToString()) {
                 case "NEW":
@@ -126,21 +128,39 @@ namespace DXApplication1.Forms
                     BlankFormData();
                     break;
                 case "EDIT":
-                    Company oData = this.gridView1.GetFocusedRow() as Company;
                     if (oData != null)
                     {
                         this.xtraTabControl1.SelectedTabPageIndex = 1;
                         this.LoadFormData(oData.Id);
                     }
                     break;
+                case "DEL":
+                    if (MessageBox.Show("ยืนยันการลบข้อมูล ?", "Application confirm message", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    {
+                        if (oData != null)
+                        {
+                            deleteData(oData.Id);
+                        }
+
+                    }
+                    break;
+
+                case "PRINT":
+                    this.printData();
+                    break;
+
             }
         }
 
         private void BlankFormData()
         {
+
+            this.editId = -1;
+
             this.txtName.Text = "";
             this.txtAddress.Text = "";
             this.txtCountry.Text = "";
+            this.startDate.DateTime = DateTime.Now;
 
         }
 
@@ -149,10 +169,87 @@ namespace DXApplication1.Forms
             this.BlankFormData();
 
             var Company = oSource.GetById(Id);
+
+            this.editId = Id;
             this.txtName.Text = Company.Name;
             this.txtAddress.Text = Company.Address;
             this.txtCountry.Text = Company.Country;
 
         }
+
+        private void deleteData(int Id)
+        {
+
+            oSource.DeleteCompany(Id);
+
+            bindGridBrow();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Company saveCompany = new Company()
+            {
+                Name = txtName.Text,
+                Address = txtAddress.Text,
+                Country = txtCountry.Text,
+                StartDate = this.startDate.DateTime
+            };
+
+            if (editId > 0)
+            {
+                saveCompany.Id = editId;
+                oSource.UpdateCompany(saveCompany);
+                //UpdateCompany(saveCompany);
+            }
+            else
+            {
+                //CreateCompany(saveCompany);
+                oSource.CreateCompany(saveCompany);
+            }
+            bindGridBrow();
+            fn_GoToGrowPage();
+        }
+
+
+        private void printData()
+        {
+            string strRPTFileName = "";
+
+            strRPTFileName = Application.StartupPath + @"\RPT\company.rpt";
+
+            ReportDocument rptPreviewReport = new ReportDocument();
+            if (!System.IO.File.Exists(strRPTFileName))
+            {
+                MessageBox.Show("File not found " + strRPTFileName, "Application Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            rptPreviewReport.Load(strRPTFileName);
+
+            //Reports.dtsAppReport ReportData = new Reports.dtsAppReport();
+            DataSet ReportData = new Reports.dtsAppReport();
+            DataSet PreviewData = new DataSet();
+
+            //var Companys = GetCompany();
+            var Companys = oSource.GetCompany();
+            foreach (var report in Companys)
+            {
+                DataRow dtrNew = ReportData.Tables["Company"].NewRow();
+                ReportData.Tables["Company"].Rows.Add(dtrNew);
+                dtrNew["Name"] = report.Name;
+                dtrNew["Address"] = report.Address;
+                dtrNew["Country"] = report.Country;
+            }
+
+            DataTable dtReport = ReportData.Tables["Company"].Copy();
+            PreviewData.Tables.Add(dtReport);
+
+
+            rptPreviewReport.SetDataSource(ReportData);
+
+            MainMenu.PreviewReport(this, false, rptPreviewReport);
+
+        }
+
     }
 }

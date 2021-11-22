@@ -30,16 +30,16 @@ namespace DXApplication1.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.grdBrowView = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grcEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
@@ -52,14 +52,14 @@ namespace DXApplication1.Forms
             this.label3 = new System.Windows.Forms.Label();
             this.txtAddress = new DevExpress.XtraEditors.ButtonEdit();
             this.txtName = new DevExpress.XtraEditors.ButtonEdit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.startDate = new DevExpress.XtraEditors.DateEdit();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.stepProgressBarItem1 = new DevExpress.XtraEditors.StepProgressBarItem();
             this.stepProgressBarItem2 = new DevExpress.XtraEditors.StepProgressBarItem();
             this.stepProgressBarItem3 = new DevExpress.XtraEditors.StepProgressBarItem();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -68,6 +68,8 @@ namespace DXApplication1.Forms
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.grdBrowView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grcEdit1)).BeginInit();
@@ -79,8 +81,8 @@ namespace DXApplication1.Forms
             ((System.ComponentModel.ISupportInitialize)(this.txtCountry.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,11 +107,14 @@ namespace DXApplication1.Forms
             this.gridView1.GridControl = this.grdBrowView;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsBehavior.ReadOnly = true;
             // 
             // grcEdit1
             // 
             this.grcEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "แก้ไข", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "แก้ไข", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.grcEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.grcEdit1.Name = "grcEdit1";
             // 
@@ -117,7 +122,7 @@ namespace DXApplication1.Forms
             // 
             this.grcEdit2.AutoHeight = false;
             this.grcEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "แก้ไข", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "แก้ไข", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.grcEdit2.Caption = "แก้ไข";
             this.grcEdit2.Name = "grcEdit2";
             // 
@@ -156,9 +161,9 @@ namespace DXApplication1.Forms
             this.xtraTabPage2.Controls.Add(this.txtName);
             this.xtraTabPage2.Controls.Add(this.label2);
             this.xtraTabPage2.Controls.Add(this.label1);
-            this.xtraTabPage2.Controls.Add(this.dateEdit1);
+            this.xtraTabPage2.Controls.Add(this.startDate);
             this.xtraTabPage2.Controls.Add(this.btnCancel);
-            this.xtraTabPage2.Controls.Add(this.simpleButton1);
+            this.xtraTabPage2.Controls.Add(this.btnSave);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(894, 548);
             this.xtraTabPage2.Text = "xtraTabPage2";
@@ -177,7 +182,7 @@ namespace DXApplication1.Forms
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(126, 130);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 16);
+            this.label4.Size = new System.Drawing.Size(51, 16);
             this.label4.TabIndex = 11;
             this.label4.Text = "Country";
             // 
@@ -186,7 +191,7 @@ namespace DXApplication1.Forms
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(126, 102);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 16);
+            this.label3.Size = new System.Drawing.Size(53, 16);
             this.label3.TabIndex = 10;
             this.label3.Text = "Address";
             // 
@@ -208,27 +213,12 @@ namespace DXApplication1.Forms
             this.txtName.Size = new System.Drawing.Size(239, 22);
             this.txtName.TabIndex = 8;
             // 
-            // stepProgressBarItem1
-            // 
-            this.stepProgressBarItem1.ContentBlock2.Caption = "Item1";
-            this.stepProgressBarItem1.Name = "stepProgressBarItem1";
-            // 
-            // stepProgressBarItem2
-            // 
-            this.stepProgressBarItem2.ContentBlock2.Caption = "Item2";
-            this.stepProgressBarItem2.Name = "stepProgressBarItem2";
-            // 
-            // stepProgressBarItem3
-            // 
-            this.stepProgressBarItem3.ContentBlock2.Caption = "Item3";
-            this.stepProgressBarItem3.Name = "stepProgressBarItem3";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(126, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 16);
+            this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Name";
             // 
@@ -237,21 +227,21 @@ namespace DXApplication1.Forms
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(132, 161);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 16);
+            this.label1.Size = new System.Drawing.Size(30, 16);
             this.label1.TabIndex = 5;
             this.label1.Text = "วันที่";
             // 
-            // dateEdit1
+            // startDate
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(191, 155);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.startDate.EditValue = null;
+            this.startDate.Location = new System.Drawing.Point(191, 155);
+            this.startDate.Name = "startDate";
+            this.startDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.startDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(239, 22);
-            this.dateEdit1.TabIndex = 4;
+            this.startDate.Size = new System.Drawing.Size(239, 22);
+            this.startDate.TabIndex = 4;
             // 
             // btnCancel
             // 
@@ -268,20 +258,36 @@ namespace DXApplication1.Forms
             this.btnCancel.Text = "ยกเลิก";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // simpleButton1
+            // btnSave
             // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.simpleButton1.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.simpleButton1.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseBorderColor = true;
-            this.simpleButton1.Location = new System.Drawing.Point(191, 205);
-            this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(105, 38);
-            this.simpleButton1.TabIndex = 2;
-            this.simpleButton1.Tag = "btn-primary";
-            this.simpleButton1.Text = "บันทึก";
+            this.btnSave.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSave.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.btnSave.Appearance.Options.UseBackColor = true;
+            this.btnSave.Appearance.Options.UseBorderColor = true;
+            this.btnSave.Location = new System.Drawing.Point(191, 205);
+            this.btnSave.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(105, 38);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Tag = "btn-primary";
+            this.btnSave.Text = "บันทึก";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // stepProgressBarItem1
+            // 
+            this.stepProgressBarItem1.ContentBlock2.Caption = "Item1";
+            this.stepProgressBarItem1.Name = "stepProgressBarItem1";
+            // 
+            // stepProgressBarItem2
+            // 
+            this.stepProgressBarItem2.ContentBlock2.Caption = "Item2";
+            this.stepProgressBarItem2.Name = "stepProgressBarItem2";
+            // 
+            // stepProgressBarItem3
+            // 
+            this.stepProgressBarItem3.ContentBlock2.Caption = "Item3";
+            this.stepProgressBarItem3.Name = "stepProgressBarItem3";
             // 
             // barManager1
             // 
@@ -294,8 +300,10 @@ namespace DXApplication1.Forms
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barButtonItem1,
-            this.barButtonItem2});
-            this.barManager1.MaxItemId = 2;
+            this.barButtonItem2,
+            this.barButtonItem3,
+            this.barButtonItem4});
+            this.barManager1.MaxItemId = 4;
             this.barManager1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barManager1_ItemClick);
             // 
             // bar1
@@ -306,7 +314,9 @@ namespace DXApplication1.Forms
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4)});
             this.bar1.Text = "Tools";
             // 
             // barButtonItem1
@@ -355,6 +365,20 @@ namespace DXApplication1.Forms
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 573);
             // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "ลบ";
+            this.barButtonItem3.Id = 2;
+            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.Tag = "DEL";
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "พิมพ์";
+            this.barButtonItem4.Id = 3;
+            this.barButtonItem4.Name = "barButtonItem4";
+            this.barButtonItem4.Tag = "PRINT";
+            // 
             // frmCompany
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -382,8 +406,8 @@ namespace DXApplication1.Forms
             ((System.ComponentModel.ISupportInitialize)(this.txtCountry.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -398,8 +422,8 @@ namespace DXApplication1.Forms
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.SimpleButton btnSave;
+        private DevExpress.XtraEditors.DateEdit startDate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.StepProgressBarItem stepProgressBarItem1;
@@ -420,5 +444,7 @@ namespace DXApplication1.Forms
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraEditors.ButtonEdit txtCountry;
         private System.Windows.Forms.Label label4;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
     }
 }
