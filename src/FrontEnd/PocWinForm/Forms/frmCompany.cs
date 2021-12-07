@@ -1,18 +1,20 @@
-﻿using PocWinForm.Models;
+﻿
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
+using System.Data;
 using System.Windows.Forms;
-
 
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using CrystalDecisions.ReportSource;
-using System.Data;
+
+using PocWinForm.Models;
 using PocWinForm.ViewModels;
 
 namespace PocWinForm.Forms

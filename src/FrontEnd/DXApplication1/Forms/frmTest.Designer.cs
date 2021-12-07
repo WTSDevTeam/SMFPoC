@@ -1,7 +1,7 @@
 ﻿
 namespace DXApplication1.Forms
 {
-    partial class frmBase
+    partial class frmTest
     {
         /// <summary>
         /// Required designer variable.
@@ -29,23 +29,33 @@ namespace DXApplication1.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // frmBase
+            // button1
             // 
-            this.Appearance.BackColor = System.Drawing.Color.White;
-            this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.button1.Location = new System.Drawing.Point(65, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 88);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // frmTest
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 569);
-            this.KeyPreview = true;
-            this.Name = "frmBase";
-            this.Text = "frmBase";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmBase_KeyDown);
+            this.ClientSize = new System.Drawing.Size(722, 474);
+            this.Controls.Add(this.button1);
+            this.Name = "frmTest";
+            this.Text = "frmTest";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button button1;
     }
 }
