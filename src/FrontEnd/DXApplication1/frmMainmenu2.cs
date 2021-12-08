@@ -164,7 +164,7 @@ namespace DXApplication1
             }
         }
 
-        
+
         private DevExpress.XtraBars.BarSubItem pmGetMenuBar(string inText, string inTag, bool inIsBold)
         {
             DevExpress.XtraBars.BarSubItem oBar = new DevExpress.XtraBars.BarSubItem();
@@ -219,5 +219,5 @@ namespace DXApplication1
 
 
 
-            }
+    }
 }
